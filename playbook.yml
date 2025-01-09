@@ -1,0 +1,9 @@
+- hosts: prod
+  become: yes
+  tasks:
+    - name: checking file
+      command: cat /tmp/rakesh
+      register: output
+      failed_when:
+        - output.rc == 0
+        - No such file or directory
